@@ -1,16 +1,16 @@
-from typing import List
+grid = [[1,3],[2,2]]
 
-words = ["are","amy","u"]
-class Solution:
-    def vowelStrings(self, words: List[str], left: int, right: int) -> int:
-        vowel = ['a', 'i', 'u', 'e', 'o']
-        out = 0
-        for i in words[left:right+1]:
-                if (i[0] in vowel) and (i[-1] in vowel):
-                    out += 1
-        return out
-
-left = 0
-right = 2
-solution = Solution()
-print(solution.vowelStrings(words, left, right))
+n = len(grid)
+size = n * n
+Count = [0] * (size+1)
+for i in range(n):
+    for j in range(n):
+        Count[grid[i][j]] += 1
+        
+a, b = -1, -1
+for i in Count:
+    if i == 2:
+        a = i
+    elif i == 0:
+        b = i
+print(a, b)
