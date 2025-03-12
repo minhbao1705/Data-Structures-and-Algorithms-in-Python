@@ -1,16 +1,18 @@
-grid = [[1,3],[2,2]]
+# from typing import List
 
-n = len(grid)
-size = n * n
-Count = [0] * (size+1)
-for i in range(n):
-    for j in range(n):
-        Count[grid[i][j]] += 1
+# class Solution:
+#     def checkPerfectNumber(self, num: int) -> bool:
+#         n = num/2
+#         sum = 0
+#         for i in range(1, n+1):
+#             if num % i == 0:
+#                 sum += i
         
-a, b = -1, -1
-for i in Count:
-    if i == 2:
-        a = i
-    elif i == 0:
-        b = i
-print(a, b)
+#         if sum == num:
+#             return True
+#         return False
+    
+num = 28
+n = int(num / 2)
+for i in range(1, n+1):
+    print(i)
