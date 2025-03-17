@@ -1,18 +1,9 @@
-# from typing import List
-
-# class Solution:
-#     def checkPerfectNumber(self, num: int) -> bool:
-#         n = num/2
-#         sum = 0
-#         for i in range(1, n+1):
-#             if num % i == 0:
-#                 sum += i
-        
-#         if sum == num:
-#             return True
-#         return False
+nums = [1,3,5,6]
+target = 2
+if target  not in nums:
+    nums.append(target)
+    nums = sorted(nums)
     
-num = 28
-n = int(num / 2)
-for i in range(1, n+1):
-    print(i)
+for i in range(len(nums)):
+    if nums[i] == target:
+        print(i)
