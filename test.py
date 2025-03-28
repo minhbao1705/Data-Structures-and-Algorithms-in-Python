@@ -1,15 +1,12 @@
-nums = [2,1,3,5,6]
-k = 5
-multiplier = 2
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
 
-
-for i in range(k):
-    m = min(nums)
-    for j in range(len(nums)):
-        if nums[j] == m:
-            n = nums[j]*multiplier
-            nums[j] = n
-            print(nums)
-            break
-            
-# print(nums)
+list = [18,6,10,3]
+head = ListNode()
+for l in list:
+    while head.next:
+        head = head.next
+    head = ListNode(l,None)
+print(head.val)
