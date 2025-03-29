@@ -1,31 +1,27 @@
+# Definition for singly-linked list.
 from typing import Optional
 
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
-
-class Solution:
-    def insertGreatestCommonDivisors(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        if not head or not head.next:
-            return head
-
-        def gcd(a, b):
-            while b:
-                a, b = b, a % b
-            return a
-
-        node1 = head
-        while node1.next:
-            node2 = node1.next
-            gcd_value = gcd(node1.val, node2.val)
-            gcd_node = ListNode(gcd_value)
-            node1.next = gcd_node
-            gcd_node.next = node2
-            node1 = node2
         
-        return head
-
+class Solution:
+    def getDecimalValue(self, head: Optional[ListNode]) -> int:
+        count = 0
+        node1 = head
+        while node1:
+            count += 1
+            node1 = node1.next
+        bit = 0 
+        sum = count - 1
+        while head:
+            # print(node.val)
+            bit += 2**sum * head.val
+            sum -= 1
+            head = head.next
+        return bit
+    
 # Hàm in danh sách liên kết
 def print_linked_list(head: ListNode):
     result = []
@@ -45,9 +41,6 @@ def create_linked_list(arr):
         current = current.next
     return head
 
-# Chạy thử
-head = create_linked_list([18, 6, 10, 3])
+head = create_linked_list([1,0,1])
 solution = Solution()
-new_head = solution.insertGreatestCommonDivisors(head)
-
-print_linked_list(new_head)  
+print(solution.getDecimalValue(head))
